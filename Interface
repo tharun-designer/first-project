@@ -1,0 +1,44 @@
+interface Shape {
+    void area();
+}
+
+class Rectangle implements Shape {
+    int dim1, dim2;
+
+    Rectangle(int l, int b) {
+        dim1 = l;
+        dim2 = b;
+    }
+
+    @Override
+    public void area() {
+        System.out.println("Area of Rectangle: " + (dim1 * dim2));
+    }
+}
+
+class Square implements Shape {
+    int dim1;
+
+    Square(int s) {
+        dim1 = s;
+    }
+
+    @Override
+    public void area() {
+        System.out.println("Area of Square: " + (dim1 * dim1));
+    }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        Shape ref;
+
+        Rectangle r = new Rectangle(10, 20);
+        ref = r;
+        ref.area();
+
+        Square s = new Square(5);
+        ref = s;
+        ref.area();
+    }
+}
